@@ -14,7 +14,6 @@ import org.eclipse.microprofile.opentracing.Traced;
 
 import org.acme.people.model.EyeColor;
 
-@Traced(false)
 @Entity
 public class Person extends PanacheEntity {
     // the person's name
