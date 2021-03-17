@@ -2,6 +2,9 @@ package org.acme.people.model;
 
 import java.io.Serializable;
 import java.util.List;
+import org.eclipse.microprofile.opentracing.Traced;
+import org.acme.people.utils.Sleep;
+
 
 public class DataTable implements Serializable {
 
@@ -16,18 +19,25 @@ public class DataTable implements Serializable {
 
     }
 
+    @Traced(true)
     public void setDraw(int draw) {
         this.draw = draw;
     }
+    @Traced(true)
     public void setRecordsTotal(long recordsTotal) {
         this.recordsTotal = recordsTotal;
     }
+    @Traced(true)
     public void setRecordsFiltered(long recordsFiltered) {
+        Sleep.pause(1000);
         this.recordsFiltered = recordsFiltered;
     }
+    @Traced(true)
     public void setData(List<Person> data) {
         this.data = data;
     }
+    
+    @Traced(true)
     public void setError(String error) {
         this.error = error;
     }
