@@ -27,8 +27,7 @@ import org.acme.people.model.StarWarsPerson;
 import org.acme.people.service.StarWarsService;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import java.util.stream.IntStream;
-import org.eclipse.microprofile.opentracing.Traced;
-
+import org.acme.people.utils.Sleep;
 import javax.inject.Inject;
 
 @Path("/person")
@@ -38,6 +37,9 @@ public class PersonResource {
     @Inject
     @RestClient
     StarWarsService swService;
+
+    @Inject
+    DataTable result;
 
     @GET
     @Path("/swpeople")
@@ -80,8 +82,9 @@ public class PersonResource {
         @QueryParam(value = "search[value]") String searchVal
 
         ) {
+            Sleep.pause(500);
             // TODO: Begin result
-            DataTable result = new DataTable();
+//            DataTable result = new DataTable();
             result.setDraw(draw); 
             // TODO: Filter based on search
             PanacheQuery<Person> filteredPeople;
