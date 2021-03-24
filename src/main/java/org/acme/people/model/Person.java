@@ -10,7 +10,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import org.eclipse.microprofile.opentracing.Traced;
 
 import org.acme.people.model.EyeColor;
 
